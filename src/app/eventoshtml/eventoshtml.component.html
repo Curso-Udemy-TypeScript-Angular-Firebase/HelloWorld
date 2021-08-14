@@ -1,0 +1,62 @@
+<!-- <p>{{person.name}} {{person.lastname}}</p>
+<p><input type="text" [(ngModel)]="txtinput"></p>
+<p>{{txtinput}}</p> -->
+
+<div>
+    <p><img [src]="urlimage" alt=""></p>
+
+    <label for="">Email
+        <input type="text" [(ngModel)]="email">
+
+    </label>
+
+    <label for="">Contraseña
+        <input type="password" [(ngModel)]="password">
+
+    </label>
+</div>
+
+<!-- Evento click -->
+<div>
+    <p><button (click)="btnStart()">SHOW EMAIL/PASS IN CONSOLE</button></p>
+</div>
+
+<!-- Evento dblclick -->
+<div>
+    <p><button (dblclick)="alert()">ALERT</button></p>
+</div>
+
+<!-- Evento ngModelChange -->
+<div>
+    <label for="">Evento ngModelChange:
+        <input type="text" [(ngModel)]="ngModelChangeEj" (ngModelChange)="startNgModelChangeEvent()" />
+    </label>
+</div>
+
+<!-- Evento Input -->
+<div>
+    <label for="">Evento input:
+        <input type="text" (input)="startInputEvent($event)" />
+    </label>
+</div>
+
+<!-- Evento Focus -->
+<div>
+    <label for="">Evento focus:
+        <input type="text" (focus)="startFocusEvent($event)" />
+    </label>
+</div>
+
+<!-- Evento OnKeyUp / OnKeyDown -->
+
+<div>
+    <label for="">Evento OnKeyUp / OnKeyDown:
+        <input type="text" (keydown)="startKeyDownEvent($event)" (keyup)="startKeyUpEvent($event)" />
+    </label>
+</div>
+
+<div>
+    <label for="">Evento OnKeyUp / OnKeyDown:
+        <img src="https://dino-chrome.com/static/images/dino.jpg" alt="" style="width: 50px; height: 50px;" (mouseenter)="mouseEnterEvent()" (mouseleave)="mouseLeaveEvent()">
+    </label>
+</div>

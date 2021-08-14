@@ -1,0 +1,13 @@
+<div class="container">
+    <div *ngFor="let item of articleList">
+        <div class="card">
+            <div class="card-body" (click)="sendParam(item)">
+                <!-- <p><strong>Nombre: </strong> <a [routerLink]="['details', article.name]">{{item.name}}</a></p> -->
+                <p><strong>Nombre: </strong> {{item.name}}</p>
+
+                <p><strong>Descripción: </strong>{{item.description}}</p>
+                <p><strong>Precio: </strong>{{item.price | currency: 'EUR'}}</p>
+            </div>
+        </div>
+    </div>
+</div>

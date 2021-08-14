@@ -1,0 +1,51 @@
+<div style="margin: 20px;">
+    <button (click)="changeDirectiva('ngIf')" style="margin: 5px;">Directiva ngIf</button>
+    <button (click)="changeDirectiva('ngFor')" style="margin: 5px;">Directiva ngFor</button>
+    <button (click)="changeDirectiva('ngSwitch')" style="margin: 5px;">Directiva ngSwitch</button>
+    <button (click)="changeDirectiva('ngClass')" style="margin: 5px;">ngClass</button>
+
+    <div class="tab-directivas" [ngSwitch]="tabdirectivas">
+        <!-- Directiva ngIf -->
+        <div *ngSwitchCase="'ngIf'">
+
+            <div style="text-align: center;" *ngIf="loading">
+                <p> <img src="https://c.tenor.com/JbpMGnCf-noAAAAC/loading-instagram.gif" alt=""> </p>
+                <p>Cargando...</p>
+            </div>
+
+            <div style="text-align: center;" *ngIf="!loading">
+                <p>Descarga completa</p>
+                <button (click)="showLoading()">Mostrar cargando</button>
+            </div>
+        </div>
+        <!-- Directiva ngFor -->
+        <div *ngSwitchCase="'ngFor'">
+
+            <div *ngFor="let person of personlist">
+                <p>Hola mi nombre es: {{person.name}} {{person.lastname}}</p>
+            </div>
+        </div>
+        <!-- Directiva ngSwitch -->
+        <div *ngSwitchCase="'ngSwitch'">
+            <div class="tab" [ngSwitch]="tabbtn">
+                <button (click)="changeTab('perfil')">Perfil</button>
+                <button (click)="changeTab('puntos')">Puntos</button>
+                <button (click)="changeTab('info')">Info</button>
+
+                <div class="tab-contenido">
+                    <p *ngSwitchCase="'perfil'">Este es el perfil</p>
+                    <p *ngSwitchCase="'puntos'">Esto son los puntos</p>
+                    <p *ngSwitchCase="'info'">Esta es la info</p>
+                    <p *ngSwitchDefault>Seleccione una pestaña</p>
+                </div>
+            </div>
+        </div>
+        <!-- Directiva ngClass -->
+        <div *ngSwitchCase="'ngClass'">
+            <button (click)="changeSquareVisibility()">Mostrar cuadrado</button>
+            <div [ngClass]="{'cuadrado':showsquare}">
+                <p>Debería aparecer verde</p>
+            </div>
+        </div>
+    </div>
+</div>
